@@ -12,6 +12,8 @@
 
 ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
 
+![Avatar](https://api.adorable.io/avatars/200/Renato_image.png)
+
 # My Tech Stack
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
