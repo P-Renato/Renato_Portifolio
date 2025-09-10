@@ -7,7 +7,7 @@ import { FaXing } from "react-icons/fa";
 
 function Header() {
   return (
-    <header className='flex flex-row w-full h-[5rem] bg-gradient-to-br from-stone-900 to-sky-500 items-center *:p-3 '>
+    <header className='flex flex-row w-full h-[5rem] bg-gradient-to-br from-gray-300 to-sky-500 items-center *:p-3 '>
         <nav className='flex flex-row justify-between w-full items-centerbvbh'>
             <h1 className="font-permanent_marker text-5xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">Portifolio</h1>
 
