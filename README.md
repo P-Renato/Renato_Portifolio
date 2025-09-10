@@ -14,6 +14,13 @@
 
 ![Avatar](https://api.adorable.io/avatars/200/Renato_image.png)
 
+
+# In a completely different repository
+
+![My Avatar](https://github.com/user-attachments/assets/714242fd-4e11-4533-8f5e-902a4c2b83fb)
+
+![My Project Screenshot](https://github.com/user-attachments/assets/434fa575-8836-4b19-aa4f-be34bde6ee44)
+
 # My Tech Stack
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
