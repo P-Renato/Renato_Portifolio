@@ -25,3 +25,56 @@
 .animate-gradient {
   animation: gradient-move 5s linear infinite;
 }
+
+
+/* app/globals.css */
+:root {
+  --textColor: rgb(240, 241, 221);
+}
+
+.font-mono {
+  font-family: var(--font-geist-mono), monospace;
+  color: var(--textColor);
+}
+
+.font-permanent-marker {
+  font-family: var(--font-permanent-marker), cursive;
+  color: var(--textColor);
+}
+
+/* Optional: Add your gradient text animation */
+.gradient-text {
+  background: linear-gradient(45deg, rgba(1, 161, 9, 0.863), rgba(236, 240, 3, 0.781), rgb(32, 248, 97));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientAnimation 1s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Time box styles */
+.time-box {
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1em 0.6em;
+  text-align: center;
+  min-width: 70px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.time-box .num {
+  font-size: 1.8em;
+  display: block;
+}
+
+.time-box .label {
+  font-size: 0.7em;
+  opacity: 0.7;
+  margin-top: 0.2em;
+}

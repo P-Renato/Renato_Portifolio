@@ -1,10 +1,17 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+
 
 export default function Home() {
   return (
-    <div>
-      <h1>hello</h1>
-      <h2>hi</h2>
-    </div>
+    <main className="bg-zinc-950 w-full h-full">
+
+   
+
+    <HeroSection />
+
+    
+
+
+    </main>
   );
 }
