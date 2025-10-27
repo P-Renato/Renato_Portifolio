@@ -41,9 +41,10 @@ export default function ContactPage() {
   async function onSubmit(values: z.infer<typeof messageFormSchema>) {
     console.log("Message content:", values);
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  
