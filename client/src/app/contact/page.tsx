@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import API_BASE_URL from "../../../config/api";
 
 const messageFormSchema = z.object({
   username: z.string().min(2, {
@@ -28,7 +28,6 @@ const messageFormSchema = z.object({
 });
 
 export default function ContactPage() {
-  const router = useRouter();
   const form = useForm<z.infer<typeof messageFormSchema>>({
     resolver: zodResolver(messageFormSchema),
     defaultValues: {
@@ -41,10 +40,9 @@ export default function ContactPage() {
   async function onSubmit(values: z.infer<typeof messageFormSchema>) {
     console.log("Message content:", values);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
 
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {
+      const response = await fetch(`${API_BASE_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  
