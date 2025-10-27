@@ -6,15 +6,12 @@ const app= express();
 
 const port = process.env.PORT || 5050;
 
-// app.use(cors({
-//     origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ["http://localhost:3000", "http://localhost:81", "https://renato-portifolio.onrender.com"],
-//     credentials: true
-// }));
-
 app.use(cors({
-    origin: "*",  // Allow all origins temporarily
-    credentials: false  // Must be false when using "*"
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ["http://localhost:3000", "http://localhost:81", "https://renato-portifolio.onrender.com"],
+    credentials: true
 }));
+
+
 
 app.use(express.json())
 
