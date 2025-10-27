@@ -7,7 +7,7 @@ const app= express();
 const port = process.env.PORT || 5050;
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ["http://localhost:3000", "http://localhost:81"],
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ["http://localhost:3000", "http://localhost:81", "https://renato-portifolio.onrender.com"],
     credentials: true
 }));
 
