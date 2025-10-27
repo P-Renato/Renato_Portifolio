@@ -42,7 +42,7 @@ export default function ContactPage() {
 
 
     try {
-      const response = await fetch(`${API_BASE_URL}/contact`, {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  
@@ -62,6 +62,15 @@ export default function ContactPage() {
       console.error("Register failed: ", err);
       alert("Failed to send message. Please try again.");
     }
+    // Check what API_BASE_URL is set to
+    console.log('API_BASE_URL:', process.env.NEXT_PUBLIC_API_URL);
+
+    // Test the exact URL being used
+    fetch('https://renato-portifolio-backend.onrender.com/api/contact', {
+      method: 'OPTIONS'
+    })
+    .then(r => console.log('API endpoint exists:', r.status))
+    .catch(e => console.error('API endpoint error:', e));
 
   }
 
