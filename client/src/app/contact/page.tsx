@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import API_BASE_URL from "../../../config/api";
+import API_BASE_URL from "@/lib/api";
 
 const messageFormSchema = z.object({
   username: z.string().min(2, {
