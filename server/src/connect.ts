@@ -19,7 +19,9 @@ export async function main(userData: User): Promise<void> {
     throw new Error("ATLAS_URI environment variable is not defined");
   }
   
-  const client = new MongoClient(Db);
+  const client = new MongoClient(Db, {
+    tlsAllowInvalidCertificates: true
+  });
 
   try {
     await client.connect();
