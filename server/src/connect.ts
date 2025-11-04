@@ -20,9 +20,11 @@ export async function main(userData: User): Promise<void> {
   }
   
   const client = new MongoClient(Db, {
-    tlsAllowInvalidCertificates: false, // Change to false for security
-    serverSelectionTimeoutMS: 10000, // 10 second timeout
-    socketTimeoutMS: 45000, // 45 second socket timeout
+    tls: true,
+    tlsAllowInvalidCertificates: false, // Must be false on Render
+    tlsInsecure: false, // Must be false
+    serverSelectionTimeoutMS: 10000,
+    socketTimeoutMS: 45000,
   });
 
   try {
