@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: client
+    env: static
+    buildCommand: cd client && npm run build
+    staticPublishPath: ./client/out
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://renato-portifolio-backend.onrender.com
+
+  - type: web
+    name: api
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 10000
