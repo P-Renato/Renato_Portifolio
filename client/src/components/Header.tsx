@@ -14,7 +14,7 @@ function Header() {
             <ul className='flex flex-row *:m-2'>
                 <li><Link href="/" className="font-mono">Home</Link></li>
                 <li><Link href="/tech-stack" className="font-mono">Skills</Link></li>
-                <li><Link href="/projects" className="font-mono">Projects</Link></li>
+                {/* <li><Link href="/projects" className="font-mono">Projects</Link></li> */}
                 <li><Link href="/contact" className="font-mono">Contact</Link></li>
             </ul>
             <nav>
