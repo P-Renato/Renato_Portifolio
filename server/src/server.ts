@@ -132,21 +132,5 @@ app.post('/api/contact', async (req, res) => {
 app.listen(port, ()=> {
     console.log("Server is running on port ", port);
      console.log("🔍 ATLAS_URI:", process.env.ATLAS_URI ? "Set" : "Not set");
-
-    //  testConnection();
 })
 
-// async function testConnection() {
-//     try {
-//         const testUser = {
-//             username: "test",
-//             email: "test@test.com",
-//             message: "Connection test",
-//             createdAt: new Date()
-//         };
-//         await main(testUser);
-//         console.log("✅ MongoDB connection test: SUCCESS");
-//     } catch (error) {
-//         console.error("❌ MongoDB connection test: FAILED", error);
-//     }
-// }
