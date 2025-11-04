@@ -20,11 +20,14 @@ export async function main(userData: User): Promise<void> {
   }
   
   const client = new MongoClient(Db, {
-    tlsAllowInvalidCertificates: true
+    tlsAllowInvalidCertificates: false, // Change to false for security
+    serverSelectionTimeoutMS: 10000, // 10 second timeout
+    socketTimeoutMS: 45000, // 45 second socket timeout
   });
 
   try {
     await client.connect();
+    console.log("✅ Connected to MongoDB successfully");
     
     const database = client.db("portifolio");
     const users = database.collection<User>("users");
