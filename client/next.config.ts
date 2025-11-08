@@ -14,9 +14,10 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            // Allow inline scripts required by Next's static/runtime output.
-            // NOTE: 'unsafe-inline' weakens CSP — see the notes below for safer alternatives.
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://renato-portifolio-backend.onrender.com; style-src 'self' 'unsafe-inline';"
+            // Allow inline scripts and eval required by Next's development runtime.
+            // NOTE: 'unsafe-inline' and 'unsafe-eval' weaken CSP significantly.
+            // TODO: In production, consider using nonces or hashes instead.
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://renato-portifolio-backend.onrender.com; style-src 'self' 'unsafe-inline';"
           },
         ],
       },
