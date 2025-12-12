@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // ✅ Tells Next.js to produce static HTML files
   outputFileTracingRoot: __dirname,
   images: {
     domains: ["github.com", "user-images.githubusercontent.com"],
@@ -10,7 +9,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
