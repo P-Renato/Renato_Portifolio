@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import API_BASE_URL from "@/lib/api";
+
 
 const messageFormSchema = z.object({
   username: z.string().min(2, {
@@ -38,11 +38,15 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof messageFormSchema>) {
+    const API_BASE_URL = "/api/contact";
+
     console.log("Message content:", values);
+    console.log("API_BASE_URL:", process.env.NEXT_PUBLIC_API_URL);
+
 
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+      const response = await fetch(API_BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  
@@ -62,8 +66,6 @@ export default function ContactPage() {
       console.error("Register failed: ", err);
       alert("Failed to send message. Please try again.");
     }
-    // Check what API_BASE_URL is set to
-    console.log('API_BASE_URL:', process.env.NEXT_PUBLIC_API_URL);
 
     // Test the exact URL being used
     fetch('https://renato-portifolio-backend.onrender.com/api/contact', {
