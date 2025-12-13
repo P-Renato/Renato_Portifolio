@@ -66,14 +66,6 @@ export default function ContactPage() {
       console.error("Register failed: ", err);
       alert("Failed to send message. Please try again.");
     }
-
-    // Test the exact URL being used
-    fetch('https://renato-portifolio-backend.onrender.com/api/contact', {
-      method: 'OPTIONS'
-    })
-    .then(r => console.log('API endpoint exists:', r.status))
-    .catch(e => console.error('API endpoint error:', e));
-
   }
 
   return (
