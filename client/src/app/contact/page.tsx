@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import API_BASE_URL from "@/lib/api";
 
 
 const messageFormSchema = z.object({
@@ -39,9 +38,8 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof messageFormSchema>) {
-    console.log("Sending to:", API_BASE_URL);
     try {
-      const response = await fetch(API_BASE_URL, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  
