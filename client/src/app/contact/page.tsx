@@ -38,7 +38,7 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof messageFormSchema>) {
-    const API_BASE_URL = "/api/contact";
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 
 
     try {
