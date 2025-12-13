@@ -2,27 +2,34 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import axios from "axios";
 
+// MongoDB connection
 const uri = process.env.MONGODB_URI;
 if (!uri) throw new Error("❌ Missing MONGODB_URI environment variable");
 
 const client = new MongoClient(uri);
 const dbName = "portfolio";
+let cachedClient: MongoClient | null = null;
+
+// Connect once per deployment
+async function connectToDB() {
+  if (cachedClient) return cachedClient;
+  await client.connect();
+  cachedClient = client;
+  return client;
+}
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const { username, email, userMessage } = body;
-
-  if (!username || !email || !userMessage) {
-    return NextResponse.json(
-      { success: false, error: "Missing required fields" },
-      { status: 400 }
-    );
-  }
-
   try {
-    await client.connect();
-    const db = client.db(dbName);
-    const collection = db.collection("messages");
+    const body = await req.json();
+
+    const { username, email, userMessage } = body;
+
+    if (!username || !email || !userMessage) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
     const newMessage = {
       username: username.trim(),
@@ -31,30 +38,28 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     };
 
+    // Save to MongoDB
+    const client = await connectToDB();
+    const db = client.db(dbName);
+    const collection = db.collection("messages");
     await collection.insertOne(newMessage);
 
+    // Send to Zapier
     if (process.env.ZAPIER_WEBHOOK_URL) {
-    try {
-        await axios.post(process.env.ZAPIER_WEBHOOK_URL, {
-            username: newMessage.username,
-            email: newMessage.email,   // <-- this will be used in Gmail "To" field
-            message: newMessage.message,
-            createdAt: newMessage.createdAt
-        });
+      try {
+        await axios.post(process.env.ZAPIER_WEBHOOK_URL, newMessage);
         console.log("✅ Zapier notified successfully");
-    } catch (zapierErr) {
-        console.error("❌ Failed to send data to Zapier:", zapierErr);
+      } catch (zapierErr) {
+        console.error("❌ Zapier webhook failed:", zapierErr);
+      }
     }
-    } else {
-    console.log("⚠️ No ZAPIER_WEBHOOK_URL found — skipping Zapier notification.");
-    }
-
 
     return NextResponse.json({ success: true, message: "Message saved successfully" });
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({ success: false, error: (err as Error).message }, { status: 500 });
-  } finally {
-    await client.close();
+    console.error("❌ Error in /api/contact:", (err as Error).message);
+    return NextResponse.json(
+      { success: false, error: (err as Error).message },
+      { status: 500 }
+    );
   }
 }
