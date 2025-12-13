@@ -1,18 +1,13 @@
 services:
   - type: web
-    name: client
-    env: static
-    buildCommand: cd client && npm run build
-    staticPublishPath: ./client/out
+    name: portfolio
+    env: node
+    buildCommand: cd client && pnpm install && pnpm run build
+    startCommand: cd client && pnpm start
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://renato-portifolio-backend.onrender.com
-
-  - type: web
-    name: api
-    env: node
-    buildCommand: cd server && npm install
-    startCommand: cd server && npm start
-    envVars:
-      - key: PORT
-        value: 10000
+        value: https://renato-portifolio.onrender.com/api/contact
+      - key: MONGODB_URI
+        value: mongodb+srv://renato_port:Fla2x1Flu!@cluster0.crccww2.mongodb.net/?appName=Cluster0
+      - key: ZAPIER_WEBHOOK_URL
+        value: https://hooks.zapier.com/hooks/catch/25671318/ufxifq8/
