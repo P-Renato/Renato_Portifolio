@@ -1,35 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
-export async function POST(_req: NextRequest) {
-  try {
-    const webhookUrl = process.env.ZAPIER_WEBHOOK_URL;
+export async function POST(req: NextRequest) {
+  const body = await req.json();
 
-    if (!webhookUrl) {
+  try {
+    if (!process.env.ZAPIER_WEBHOOK_URL) {
       throw new Error("Missing ZAPIER_WEBHOOK_URL");
     }
 
-    const payload = {
-      username: "Test User",
-      email: "test@example.com",
-      message: "Hello from backend",
-      createdAt: new Date().toISOString(),
-    };
+    
 
-    const zapierRes = await axios.post(webhookUrl, payload);
+    const zapierRes = await axios.post(process.env.ZAPIER_WEBHOOK_URL, body);
 
     return NextResponse.json({
       success: true,
       zapierStatus: zapierRes.status,
-      dataSent: payload,
+      dataSent: body,
     });
   } catch (err) {
-    return NextResponse.json(
-      {
-        success: false,
-        error: (err as Error).message,
-      },
-      { status: 500 }
-    );
+    return NextResponse.json({
+      success: false,
+      error: (err as Error).message,
+    });
   }
 }
