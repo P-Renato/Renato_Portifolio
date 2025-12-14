@@ -34,3 +34,168 @@ logo=javascript = JavaScript logo
 
 logoColor=black = Logo color -->
 
+# 🚀 Renato Portfolio
+
+A modern, full‑stack portfolio built with **Next.js (App Router)**, showcasing projects, tech stack, and a fully functional **Contact system** powered by **MongoDB** and **Zapier automation**.
+
+This project was designed not only as a personal website, but as a **production‑ready application**, demonstrating real‑world patterns such as API routes, database persistence, deployment, and workflow automation.
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Live Website:** [https://renato-portifolio.onrender.com](https://renato-portifolio.onrender.com)
+
+---
+
+## ✨ Key Features
+
+### 🖥️ Frontend
+
+* Built with **Next.js 15 (App Router)**
+* Fully responsive UI
+* Modern component architecture
+* Type‑safe forms with validation
+* Optimized for performance and SEO
+
+### 📩 Contact System (Full Stack)
+
+* Custom contact form
+* Server‑side API endpoint (`/api/contact`)
+* Data persistence using **MongoDB Atlas**
+* Robust validation and error handling
+
+### ⚙️ Automation & Integrations
+
+* **Zapier Webhook integration**
+* Automatically triggers workflows when a new message is received
+* Enables email notifications and future AI‑powered replies
+* Designed for multilingual and scalable automation use cases
+
+### ☁️ Deployment
+
+* Deployed on **Render** as a **Node Web Service**
+* Supports server‑side rendering and API routes
+* Environment‑based configuration for secure credentials
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Next.js 15** (App Router)
+* **React 19**
+* **TypeScript**
+* **Tailwind CSS**
+* **React Hook Form**
+* **Zod** (schema validation)
+
+### Backend
+
+* **Next.js API Routes**
+* **MongoDB Atlas**
+* **MongoDB Node Driver**
+* **Axios**
+
+### Automation & DevOps
+
+* **Zapier (Webhooks)** – automation & notifications
+* **Render** – deployment & hosting
+* **pnpm** – package management
+
+---
+
+## 🔁 Automation Workflow (Zapier)
+
+When a user submits the contact form:
+
+1. The frontend sends data to `/api/contact`
+2. The API:
+
+   * Validates the payload
+   * Stores the message in MongoDB
+   * Sends the payload to Zapier via webhook
+3. Zapier triggers automation such as:
+
+   * Sending email notifications
+   * Routing messages
+   * (Future) AI‑generated replies in multiple languages
+
+This architecture allows **easy expansion** into AI‑assisted customer communication, multilingual responses, and CRM integrations.
+
+---
+
+## 🧠 Why Automation Matters
+
+Automation is becoming a core skill in modern development. This project demonstrates:
+
+* Event‑driven architecture
+* Third‑party integrations
+* Scalable communication workflows
+* Foundation for AI‑powered features
+
+These patterns are highly relevant for **modern SaaS**, **startups**, and **enterprise applications**.
+
+---
+
+## 🔐 Environment Variables
+
+The following environment variables are required:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+ZAPIER_WEBHOOK_URL=your_zapier_webhook_url
+```
+
+---
+
+## 🧪 Local Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+The app will be available at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+├─ api/
+│  └─ contact/
+│     └─ route.ts
+├─ contact/
+│  └─ page.tsx
+├─ projects/
+├─ tech-stack/
+└─ layout.tsx
+```
+
+---
+
+## 🚧 Future Improvements
+
+* 🤖 AI‑powered multilingual auto‑replies
+* 📊 Admin dashboard for messages
+* 📨 Advanced email templating
+* 🔐 Authentication for admin access
+
+---
+
+## 👨‍💻 Author
+
+**Renato**
+Full‑Stack Developer
+Passionate about modern web technologies, automation, and scalable systems.
+
+---
+
+⭐ If you like this project, feel free to star the repository!
