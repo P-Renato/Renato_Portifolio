@@ -68,7 +68,7 @@ export default function HeroSection() {
 
   return (
     <main className='w-full h-screen'>
-        <section className='flex h-[70%] w-full justify-around items-center px-8 '>
+        <section className='flex h-[70%] w-full justify-around items-center px-8 relative'>
             <nav className='flex flex-col'>
                 <p className="font-mono text-lg mb-2">Hello,</p>
                 <p className="font-mono text-xl mb-2">
@@ -78,8 +78,8 @@ export default function HeroSection() {
                 
             </nav>
         
-            <div>
-                <Image src={RenatoImage} alt="My-Image" width={200} height={200} />
+            <div className='relative top-32 sm:top-52 md:top-52'>
+                <Image src={RenatoImage} alt="My-Image" width={800} height={800} />
             </div>
         </section>
         <aside className="p-6 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg shadow-2xl w-[40%] m-auto">
