@@ -1,6 +1,6 @@
 // app/about-me/page.tsx
 import React from 'react';
-import { FaCode, FaGraduationCap, FaMusic, FaLightbulb, FaGlobe } from "react-icons/fa";
+import { FaCode, FaGraduationCap, FaMusic, FaGlobe } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { GiBrain } from "react-icons/gi";
 
@@ -137,9 +137,9 @@ function AboutMe() {
 
         {/* Call to Action */}
         <div className="text-center bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-8 rounded-2xl border border-purple-700">
-          <h2 className="text-3xl font-bold mb-4">Let's Build Something Amazing</h2>
+          <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something Amazing</h2>
           <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-            Interested in collaborating or just want to chat about tech? I'm always open to discussing new opportunities.
+            Interested in collaborating or just want to chat about tech? I&apos;m always open to discussing new opportunities.
           </p>
           <a 
             href="/contact" 
