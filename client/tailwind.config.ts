@@ -7,7 +7,12 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx}",      // if using src/ folder
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'sm': '740px',
+        'md': '968px', 
+      },
+    },
   },
   plugins: [],
 };
