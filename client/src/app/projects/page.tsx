@@ -312,7 +312,7 @@
 
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import clsx from 'clsx'; 
 import styles from './projects.module.css';
 import Link from 'next/link';
